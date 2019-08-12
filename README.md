@@ -1,4 +1,4 @@
-# OpenShift_CICD_ECI
+# OpenShift CICD Scope for ECI
 
 1. I need to deploy Sterling's WS (reserve, getOrderList...) as single containers: Can i make a single container with just those API? Can i create as many app server containers as API i have and redirect traffic with a proxy (istio or whatever service mesh is in place) so that each container just receives the payload for that API?
 
