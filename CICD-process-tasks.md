@@ -81,4 +81,5 @@
       2. Push images to the repository
       3. Update helm charts with new environment specific changes, task changes/customizations
       4. Deploy the app and agent containers to **Team Environment**
+  5. Team testing in **Team Environment**    
    
