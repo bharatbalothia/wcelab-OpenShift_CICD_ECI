@@ -17,11 +17,11 @@
    6. Update MQ server with Connection factories and Queues, generate bindings
    7. Create OCP project for Team testing
    8. Prepare pre-requisites for helm deploy
-      a. Persistent Volume Claim
-      b. Secrets
-      c. Config Map with MQ bindings, DB connection properties and customer overrides properites, SSL certificates
-      d. Prepare ingress/routes
-      e. Update values.yaml
+      1. Persistent Volume Claim
+      2. Secrets
+      3. Config Map with MQ bindings, DB connection properties and customer overrides properites, SSL certificates
+      4. Prepare ingress/routes
+      5. Update values.yaml
    9. Deploy latest app and agent images to the newly created project (Using helm charts prepared above)
 3. Update Group environment with Team's new sprint
    1. Update DB2 transaction with data definition changes (perform entity deployer)
