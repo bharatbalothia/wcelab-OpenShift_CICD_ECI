@@ -37,8 +37,7 @@
    3. Push tagged app and agent images to Image registry
    4. Update Team's DB2 config schema with latest Configuration Data (apply CDT)
    5. Prepare DB2 transaction schema with Team's latest db extensions (entity deployer)
-   6. Update MQ server with Connection factories and Queues, generate bindings
-   
+   6. Update MQ server with Connection factories and Queues, generate bindings   
    8. Prepare pre-requisites for helm deploy **[NZ we need to put some steps in "Initialization" step. We also need to make this automatical instead of a manual process]**
       1. Persistent Volume Claim
       2. Update Secrets with DB credentials
@@ -48,7 +47,8 @@
    9. Deploy latest app and agent images to the newly created project (Using helm charts prepared above)
    
 
-1. Update Group environment with Team's new sprint
+1. Update Group environment with Team's new Sprint
    1. Update DB2 transaction with data definition changes (perform entity deployer)
-   2. Prepare DB2 config schema with Team's new sprint configuration data (Check out CDT xmls from git and import CDT)
-   3. 
+   2. Prepare DB2 config schema with Team's new sprint configuration data (Check out CDT xmls from git and perfrom import CDT)
+   3. Prepare helm charts to deploy Team's new Sprint changes to Group environment
+   4. Deploy Team's app and agent images to the Group's project using the updated helm charts
