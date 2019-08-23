@@ -54,6 +54,32 @@
    4. Deploy Team's app and agent images to the Group's project using the updated helm charts
    
 ## Task Process
+
+### Pre-Requisites
+1. Images
+   1. Foundation
+   2. App
+   3. Agent
+   4. DB2 for config schema
+2. Running Containers
+   1. DB2 container with schemas except Config schema
+   2. Team's MQ container
+3. Git Team Branch
+   1. Team's Helm Charts in Git
+   2. Team's latest CDT
+   3. Team's Code base
+   
+### Deliverables
+1. Images
+   1. Team's app image updated with Task's customizations
+   2. Team's agent image updated with Task's customizations
+2. Updated Git Team branch
+   1. Updated CDT
+   2. Task's customization artifacts
+      1. Code, resources, properties, db extensions etc
+   3. Updated Team's helm charts
+   
+### Dev-Ops Process
 1. Initialize **Task Environment**
    1. Prepare DB2 Configuration schema
    2. Prepare helm charts with new Config schema, app and agent image tags (Team's latest image)
