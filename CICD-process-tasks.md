@@ -10,7 +10,7 @@
    4. Create ConfigMap
    5. Create Kube Secrets
    6. Create Ingress/Routes for app server load balancer
-1. Initialize group environment
+1. Initialize Group environment
    1. Prepare DB2 transaction schema with OOTB OMS schema and factory data (use helm charts prepared in step 0.3)
    2. Prepare MQ Server
    3. Load Image registry with OOTB OMS images (foundation, app and agent)
