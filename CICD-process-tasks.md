@@ -52,3 +52,33 @@
    2. Prepare DB2 config schema with Team's new sprint configuration data (Check out CDT xmls from git and perfrom import CDT)
    3. Prepare helm charts to deploy Team's new Sprint changes to Group environment
    4. Deploy Team's app and agent images to the Group's project using the updated helm charts
+   
+## Task Process
+1. Initialize **Task Environment**
+   1. Prepare DB2 Configuration schema
+   2. Prepare helm charts with new Config schema, app and agent image tags (Team's latest image)
+   3. Initialize foundation container connecting to DB2 config schema, check out the latest CDT from the team's branch and apply CDT
+   4. Deploy app server and agent containers using the prepared helm charts
+   5. Create new Task branch from the Team's branch in Git
+2. Apply Customizations to **Task Environment**
+   1. Change Configuration
+      1. Manual configuration changes through OMS Application in the **Task Environment**
+   2. Change Code Base (Code, DB extensions, resources, properties etc)
+      1. Check in Code changes to the Task branch
+      2. Build/Update the app and agent containers with the new Code changes (hot deployment)
+      3. Optional: Use Foundation container to apply DB extensions to the **Team Environment** transactional schema (entity deployer/DDL)
+   3. Test customizations in **Task Environment**
+3. Pull Request for Task to Team Git branch
+   1. Extract Task Configuration   
+      1. Export CDT from **Task Environment*
+      2. Check in the CDT xmls to Task branch in Git
+   2. Pull Request from Task Branch to Team Branch
+ 4. Apply Customization to **Team Environment**  
+   1. Change Configuration
+      1. Apply latest CDT to **Team Environment** Config schema
+   2. Build and Deploy
+      1. Build app and agent image for the team with latest code from team branch
+      2. Push images to the repository
+      3. Update helm charts with new environment specific changes, task changes/customizations
+      4. Deploy the app and agent containers to **Team Environment**
+   
