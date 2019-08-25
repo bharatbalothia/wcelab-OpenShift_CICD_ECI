@@ -21,11 +21,11 @@
    
 ## DevOp Process
 
-1. Prepare OCP Cluster [Epic 19](#19)
-   1. Install ICP Common services (helm, tiller etc) [User Story 21](#21)
-   1. Update OMS helm charts for the OpenShift cluster [User Story 30](#30)
-      1. Download OOB OMS helm charts [Part of User Story #30](#30)
-      1. Update helm charts with cluster specific information [Part of User Story #30](#30)
+1. Prepare OCP Cluster [Epic 19](/../../issues/19)
+   1. Install ICP Common services (helm, tiller etc) [User Story 21](/../../issues/21)
+   1. Update OMS helm charts for the OpenShift cluster [User Story 30](/../../issues/30)
+      1. Download OOB OMS helm charts [Part of User Story #30](/../../issues/30)
+      1. Update helm charts with cluster specific information [Part of User Story #30](/../../issues/30)
   
 1. Prepare OCP project for **Group Environment**
 
