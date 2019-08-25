@@ -2,10 +2,30 @@
 
 ## OMS Group process
 
-1. Prepare OCP Cluster
-   1. Install ICP Common services (helm, tiller etc)
-   2. Download OMS helm charts
-   3. Update helm charts with cluster specific information
+### Pre-Requisites
+1. Images
+   1. Foundation - latest OOTB version
+   2. App - latest OOTB version
+   3. Agent - latest OOTB version
+   4. DB2 for Config schema
+   5. DB2 for schemas other than Config
+   6. MQ Image
+2. Git Group Branch
+
+### Deliverables
+1. Images
+   1. Group's latest App image (if it is a standard one accross service teams)
+   2. Service's latest Agent image (if it is a standard one accross service teams)
+2. Updated Git OMS Group Branch
+   1. Base CDT for services
+   
+## DevOp Process
+
+1. Prepare OCP Cluster [Epic 19](#19)
+   1. Install ICP Common services (helm, tiller etc) [User Story 21](#21)
+   1. Update OMS helm charts for the OpenShift cluster [User Story 30](#30)
+      1. Download OOB OMS helm charts [Part of User Story #30](#30)
+      1. Update helm charts with cluster specific information [Part of User Story #30](#30)
   
 1. Prepare OCP project for **Group Environment**
 
