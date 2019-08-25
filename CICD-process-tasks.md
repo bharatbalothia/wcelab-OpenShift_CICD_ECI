@@ -26,21 +26,25 @@
    1. Update OMS helm charts for the OpenShift cluster [User Story 30](/../../issues/30)
       1. Download OOB OMS helm charts [Part of User Story #30](/../../issues/30)
       1. Update helm charts with cluster specific information [Part of User Story #30](/../../issues/30)
-  
-1. Prepare OCP project for **Group Environment**
 
-   1. Create Persisten Storage
-   1. Create ConfigMap
-   1. Create Kube Secrets
-   1. Create Ingress/Routes for app server load balancer
-
-1. Initialize **Group environment**
+1. Initialize **Group environment** [Epic 15](/../../issues/15)
    
-   1. Prepare DB2 transaction schema with OOTB OMS schema and factory data (use helm charts prepared in step 0.3)
-   2. Prepare MQ Server
-   3. Load Image registry with OOTB OMS images (foundation, app and agent)
-   4. Create OCP project (similar to namespace in kubernetes cluster) with appropriate group name
-   5. Deploy ootb app and agent image into the new ocp project
+   1. Prepare OCP project for **Group Environment** [User Story 22](/../../issues/22)
+
+      1. Create Persisten Storage
+      1. Create ConfigMap
+      1. Create Kube Secrets
+      1. Create Ingress/Routes for app server load balancer
+   
+   1. Load starter containers for a team [User Store 31](/../../issues/31)
+      1. Prepare DB2 transaction schema with OOTB OMS schema and factory data
+      2. Prepare MQ Server
+      3. Load Image registry with OOTB OMS images (foundation, app and agent)
+      4. Update OpenShift project (similar to namespace in kubernetes cluster) with appropriate group name
+      5. Deploy OOTB app and agent image into the new OpenShift project
+
+1. Create and Save OOTB or BDA Configuratin CDT as Group's Base CDT [User Story 14] (/../../issues/14)
+
 
 ## Service Team Process
 
@@ -64,22 +68,20 @@ Service team is a team that is responsible for the development, unit testing, an
    2. Service's latest Agent image
 2. Updated Git OMS Group Branch
    1. Updated DB extensions
-3. Updated Git Team Branch   
+3. Updated Git Service Branch   
    1. Service's latest CDT
    2. Service's customization artifacts
       1. Code, resources, properties
    3. Updated Service's helm charts 
 
 ### Dev-Ops Process
-1. Prepare OCP project **Individual Service Environment**
-   1. Same steps as "Prepare OCP Project for **OMS Group Environment**"
 
-2. Initialize **Individual Team Environment**
+1. Initialize Individual **Service Environment** [Epic 15](/../../issues/15)
    1. Same steps as "Initialize **Group Environment**"
 
-3. Regression test in **Team Environment** after each task completion
+3. Regression test in **Service Environment** after each task completion
 
-4. Regresion/Functional test in **Service Environment** prior to Team's sprint completion
+4. Regresion/Functional test in **Service Environment** prior to Service Team's sprint completion
    1. Check out and merge **Group Environment** DB extensions with **Service Environment** DB extensions
 
 5. Push Service Team's Sprint Deliverables to **Group Environment**
@@ -98,7 +100,7 @@ Service team is a team that is responsible for the development, unit testing, an
 
 
 
-3. Update individual **Service Environment** for Team Testing. *Triggers by Service branch commit/merge or manually*
+3. Update individual **Service Environment** for Service Testing. *Triggers by Service branch commit/merge or manually*
    1. Complete any pending pull requests code and configuration changes **[NZ I think this should be Task Team's responsibility]**
    2. Build OMS app and agent images with latest code from Service branch
    3. Push tagged app and agent images to Image registry
