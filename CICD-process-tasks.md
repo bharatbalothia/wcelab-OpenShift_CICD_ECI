@@ -81,23 +81,27 @@ Service team is a team that is responsible for the development, unit testing, an
 
 3. Regression test in **Service Environment** after each task completion
 
-4. Regresion/Functional test in **Service Environment** prior to Service Team's sprint completion
-   1. Check out and merge **Group Environment** DB extensions with **Service Environment** DB extensions
+4. Regresion/Functional test in **Service Environment** prior to Service Team's sprint completion [Epic 27](/../../issues/27)
+   1. Independently deploy our service's configuration and code base to Group Environment
+   1. Merge our service's DB extension with Group's DB extension
+   1. Test our service's functionality in the Group Environment with other OMS services
 
-5. Push Service Team's Sprint Deliverables to **Group Environment**
-   1. Check in the merged DB extensions to Group's Git branch
-   2. Check in Service's helm charts to be used in **Group Environment**
-   2. Push Service's App and Agent images to Group's Image repository
-   3. Update Group's MQ server with Service's Connection factories and Queues, generate new .bindings  
-   4. Checkin the MQ .bindings to Git Service Branch **[NZ should this be in Service or Group branch?]**
-   3. Run Service's containers in **Group Environment** (Group environment has one namespace/project shared by multiple Teams) 
-      1. Change Configuration
-         1. Apply latest CDT to Service's Config schema in **Group Environment** (Each Service has its own Config schema in Group's namespace)   
+5. Deploy Service Team's Sprint Deliverables to **Group Environment** and perform Group level testing [Epic 27](/../../issues/27)
+   1. Stage the service's independent configuration and code base for the Group Environment
+      1. Check in Service's helm charts to be used in **Group Environment**
+      2. Push Service's App and Agent images to registry
+      3. Update Service's CDT if required for the **Group Environment**
+   2. Merge the service dependent configuration with Group's configuration
+      1. Merge our service's DB extension with Group's DB extension
+      3. Update Group's MQ server with Service's Connection factories and Queues, generate new .bindings. Checkin the MQ .bindings to Git Service Branch **[NZ should this be in Service or Group branch or both?]**
+
+   1. Deploy or update Service in the **Group Environment**
+      1. Apply latest CDT to Service's Config schema in **Group Environment** (Each Service has its own Config schema in Group's namespace)   
       2. Build and Deploy
          1. Check out the Service's latest helm charts to the Group's build/deploy location
          2. Use Foundation container to apply DB extensions to the **Group Environment** transactional schema with Service's changes (entity deployer/DDL)
          3. Deploy the Service's app and agent containers to **Group Environment** using Service's latest helm charts
-
+   1. Test the service's functionality in the Group Environment with other Services
 
 
 3. Update individual **Service Environment** for Service Testing. *Triggers by Service branch commit/merge or manually*
@@ -116,7 +120,7 @@ Service team is a team that is responsible for the development, unit testing, an
    9. Deploy latest app and agent images to the newly created project (Using helm charts prepared above) **[NZ I think this step is no moved to Prepare OS project step]**
    
 
-1. Update Group environment with Service's new Sprint **[NZ I think it is a duplicate step of "Push Service Team's Sprint Deliverables to Group Environment]**
+1. Update Group environment with Service's new Sprint **[NZ I think it is a duplicate step of "Deploy Service Team's Sprint Deliverables to Group Environment and perform Group level testing"]**
    1. Update DB2 transaction with data definition changes (perform entity deployer)
    2. Prepare DB2 config schema with Service's new sprint configuration data (Check out CDT xmls from git and perfrom import CDT)
    3. Prepare helm charts to deploy Service's new Sprint changes to Group environment
@@ -150,13 +154,16 @@ Service team is a team that is responsible for the development, unit testing, an
    3. Updated Service's helm charts
    
 ### Dev-Ops Process
-1. Initialize **Task Environment**
+
+The DevOp process is reflected in [Epic 32](/../../issues/32)
+
+1. Initialize **Task Environment** [User story 33](/../../issues/33)
    1. Prepare DB2 Configuration schema
    2. Prepare helm charts with new Config schema, app and agent image tags (Team's latest image)
    3. Initialize foundation container connecting to DB2 config schema, check out the latest CDT from the Service's branch and apply CDT
    4. Deploy Task's app server and agent containers using the prepared helm charts
    5. Create new Task branch from the Service's branch in Git
-2. Apply Customizations to **Task Environment**
+2. Develop and test Task feature in **Task Environment** [User story 34](/../../issues/34)
    1. Change Configuration
       1. Manual configuration changes through OMS Application in the **Task Environment**
    2. Change Code Base (Code, DB extensions, resources, properties etc)
@@ -165,12 +172,12 @@ Service team is a team that is responsible for the development, unit testing, an
       3. Optional: Use Foundation container to apply DB extensions to the **Service Environment** transactional schema (entity deployer/DDL)
    3. Update helm charts with new environment specific changes, task changes/customizations and check-in to Task branch
    3. Test customizations in **Task Environment**
-3. Pull Request for Task to Git Service branch
+3. Pull Request for Task to Git Service branch [User story 35](/../../issues/35)
    1. Extract Task Configuration   
-      1. Export CDT from **Task Environment*
+      1. Export CDT from **Task Environment**
       2. Check in the CDT xmls to Task branch in Git
    2. Pull Request from Task Branch to Service Branch
- 4. Apply Customization to **Service Environment**  
+4. Update **Service Environment** with Task deliverables [User story 36](/../../issues/36)
    1. Change Configuration
       1. Apply latest CDT to **Service Environment** Config schema
    2. Build and Deploy
@@ -178,5 +185,5 @@ Service team is a team that is responsible for the development, unit testing, an
       2. Push the App and Agent images to the Image repository
       3. Check out the Service's latest helm charts to the Service's build/deploy location
       4. Deploy the app and agent containers to **Service Environment** using the latest helm charts
-  5. Team testing in **Service Environment**
+5. New feature and regression test in **Service Environment** [User story 37](/../../issues/37)
    
