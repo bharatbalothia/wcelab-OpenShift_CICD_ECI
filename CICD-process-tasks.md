@@ -45,35 +45,6 @@
 
 1. Create and Save OOTB or BDA Configuratin CDT as Group's Base CDT [User Story 14](/../../issues/14)
 
-## Operation Team Process
-
-Operations team is a team that is responsible for the deployment of releases to production and non-production testing environments.
-### Pre-Requisites
-1. Images
-   1. Foundation - latest OOTB version in more secured artifactory
-   2. App - release version for each Group
-   3. Agent - release version for each Group 
-   4. DB2 for Config schema for each
-   5. DB2 for schemas other than Config
-   6. MQ Image
- 2. Git Release Branch
-   1. Release version of the CDT for each Group
-   2. Group's release version of DB extension for non-config schemas 
-
-### Deliverables
-1. Deployed Containers
-   1. Deploy each Group's release version of App, Agent containers
-2. DB Changes
-   1. DB2 Config Schema corresponding to each Group with its release version of CDT applied
-   2. DB2 Non-Config Schema for each Group with the release version of DB extensions applied
-3. MQ
-   1. Apply release changes including new Queues, Container factories etc with 
-   2. Generated .bindings file after applying release changes
-4. Helm Charts - Release version
-   1. Each Group's updated ConfigMap corresponding to the release 
-   2. Updated values.yaml file with release changes
-   
-
 ## Service Team Process
 
 Service team is a team that is responsible for the development, unit testing, and group testing of the service. 
@@ -214,4 +185,39 @@ The DevOp process is reflected in [Epic 32](/../../issues/32)
       3. Check out the Service's latest helm charts to the Service's build/deploy location
       4. Deploy the app and agent containers to **Service Environment** using the latest helm charts
 5. New feature and regression test in **Service Environment** [User story 37](/../../issues/37)
-   
+
+
+## Operation Team Process
+
+Operations team is a team that is responsible for the deployment of releases to production and non-production testing environments and support and monitoring and maintenance. 
+
+### Pre-Requisites
+1. Images
+   1. Foundation - latest OOTB version in more secured artifactory
+   2. App - release version for each Group
+   3. Agent - release version for each Group 
+   4. DB2 for Config schema for each
+   5. DB2 for schemas other than Config
+   6. MQ Image
+2. Git Release Branch
+   1. Release version of the CDT for each Group
+   2. Group's release version of DB extension for non-config schemas 
+
+### Operations Process
+1. 
+
+### Deliverables
+1. Deployed Containers
+   1. Deploy Group's release version of App, Agent containers
+2. DB Changes applied
+   1. DB2 Config Schema corresponding to Group's release version of CDT applied
+   2. DB2 Non-Config Schema for Group with the release version of DB extensions applied
+3. MQ changed applied
+   1. Apply release changes including new Queues, Container factories etc with 
+   2. Generated .bindings file after applying release changes
+4. Helm Charts - Release version
+   1. Each Group's updated ConfigMap corresponding to the release 
+   2. Updated values.yaml file with release changes
+
+
+
