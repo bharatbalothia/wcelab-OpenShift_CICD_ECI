@@ -36,14 +36,14 @@
       1. Create Kube Secrets
       1. Create Ingress/Routes for app server load balancer
    
-   1. Load starter containers for a team [User Store 31](/../../issues/31)
+   1. Load starter containers for a team [User Story 31](/../../issues/31)
       1. Prepare DB2 transaction schema with OOTB OMS schema and factory data
       2. Prepare MQ Server
       3. Load Image registry with OOTB OMS images (foundation, app and agent)
       4. Update OpenShift project (similar to namespace in kubernetes cluster) with appropriate group name
       5. Deploy OOTB app and agent image into the new OpenShift project
 
-1. Create and Save OOTB or BDA Configuratin CDT as Group's Base CDT [User Story 14] (/../../issues/14)
+1. Create and Save OOTB or BDA Configuratin CDT as Group's Base CDT [User Story 14](/../../issues/14)
 
 
 ## Service Team Process
