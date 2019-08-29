@@ -1,6 +1,21 @@
-# OpenShift CICD Scope for ECI
+# OMS V10 CICD Design
 
-## Requirements
+This design is the reference CICD process for OMS v10 on OpenShift® platform.
+
+This design focuses on the following objectives (design goals):
+
+1. Continuous or near continuous development and deployment of functionalities
+2. Modularization of OMS functionalities by Service and Service Delivery team
+3. Near continous integration of functionalities from a group of OMS Service delivery teams
+4. Operational efficiency and resilience
+
+## Where to start?
+
+[OMS DevOps Process Using Openshift Features](./OMS%20DevOps%20Process%20Using%20Openshift%20Features.pptx) provides the overview of the DevOp process. 
+
+## Design requirements
+
+### Requirements
 
 1. As a deployer: I need to be able to deploy a specific Sterling API with its own configuration and codebase as a microservice 
 2. As a deployer: I need to be able to deploy a specific Sterling API(functionality) as a microservice 
@@ -14,7 +29,7 @@
 8. Deployer, Infrastructure Provider : <blue-green deployment> 
 
 
-## Client Ask
+### Client Ask
 
 1. I need to deploy Sterling's WS (reserve, getOrderList...) as single containers: Can i make a single container with just those API? Can i create as many app server containers as API i have and redirect traffic with a proxy (istio or whatever service mesh is in place) so that each container just receives the payload for that API?
 
