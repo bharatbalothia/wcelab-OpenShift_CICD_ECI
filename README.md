@@ -13,7 +13,7 @@ This design focuses on the following objectives (design goals):
 
 [OMS DevOps Process Using Openshift Features](./OMS%20DevOps%20Process%20Using%20Openshift%20Features.pptx) provides the overview of the DevOp process. 
 
-![](./95_pics/1_group_2_service_devop.png "Environment Snapshot of 2 service teams")
+![](./95_pics/1_group_2_service_devop.PNG "Environment Snapshot of 2 service teams")
 
 ## Design requirements
 
