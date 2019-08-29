@@ -189,22 +189,32 @@ The DevOp process is reflected in [Epic 32](/../../issues/32)
 
 ## Operation Team Process
 
-Operations team is a team that is responsible for the deployment of releases to production and non-production testing environments and support and monitoring and maintenance. 
+Operations team is a team that is responsible for the deployment of releases to production and non-production testing environments. Also provide support and maintenance. 
 
 ### Pre-Requisites
+1.Production and Pre-Production environments have more secured artifactory which holds the released and verified docker images corresponding to Foundation, App and Agent
 1. Images
-   1. Foundation - latest OOTB version in more secured artifactory
+   1. Foundation - latest OOTB version
    2. App - release version for each Group
    3. Agent - release version for each Group 
    4. DB2 for Config schema for each
    5. DB2 for schemas other than Config
-   6. MQ Image
+   6. MQ with Queues, Channels and Connection factories configured
 2. Git Release Branch
    1. Release version of the CDT for each Group
    2. Group's release version of DB extension for non-config schemas 
 
-### Operations Process
-1. 
+### Operations Responsibilities
+1. Avail the number of instances of App and different Agent and Integration server containers based on performance testing results from the testing team
+2. Sizing information in terms of CPU, Memory and HDD capacity
+3. Update the helm charts with the number of instances for each container
+4. Prepare helm charts on need basis to deploy specific Sterling API/Service/Functionality. 
+5. Prepare the corresponding configuration schema required for the specific Sterling API/Service/Functionality.
+6. Validate network and MQ connectivities and configurations
+7. Auto discovery using Openshift Service configurations for set of replicated pods. 
+8. Autoscaling - Openshift ClusterAutoscaler?
+9. OpenShift provides self-healing mechanisms through liveness probe and readiness proble
+10. Continous deployment - Blue-Green and A/B deployment strategies - multiple options in OpenShift. (https://docs.openshift.com/container-platform/3.3/dev_guide/deployments/advanced_deployment_strategies.html)
 
 ### Deliverables
 1. Deployed Containers
