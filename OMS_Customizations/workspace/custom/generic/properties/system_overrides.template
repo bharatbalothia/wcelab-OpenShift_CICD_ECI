@@ -1,0 +1,8 @@
+jdbcService.db2Pool.dbvendor=db2
+jdbcService.db2Pool.systemPool=true
+jdbcService.db2Pool.dbname=<DBNAME>
+jdbcService.db2Pool.url=<DBURL>
+jdbcService.db2Pool.schema=<DBNAME>
+jdbcService.db2Pool.catalog=<DBNAME>
+jdbcService.db2Pool.user=<DBUSERID>
+jdbcService.db2Pool.password=<DBPASSWORD>

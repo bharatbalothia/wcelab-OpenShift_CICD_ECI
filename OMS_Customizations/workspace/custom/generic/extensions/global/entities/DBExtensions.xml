@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DBSchema>
+	<Entities>
+		<Entity TableName="YFS_USER_EXIT_IMPL">
+			<Attributes>
+				<Attribute ColumnName="UE_IMPL_URL" DataType="Text-100" Description="Proxy URL" Nullable="true" Type="VARCHAR2" XMLGroup="Extn" XMLName="ExtnUEUrl" />
+			</Attributes>
+		</Entity>
+		
+		
+      <Entity TableName="YFS_SHIPMENT_LINE">
+         <Attributes>
+            <Attribute ColumnName="EXTN_REASON_CODE" Description="Extn Reason Code" Type="VARCHAR2" Size="100" Nullable="True" XMLName="ExtnReasonCode" XMLGroup="Extn" />
+            <Attribute ColumnName="EXTN_TRACKINGNO"  Nullable="true" Description="Extn Tracking Number" Type="VARCHAR2" Size="50"  XMLName="ExtnTrackingNo" XMLGroup="Extn"/>
+            <Attribute ColumnName="EXTN_TRACKINGURL"  Nullable="true" Description="Extn Tracking URL" Type="VARCHAR2" Size="500"  XMLName="ExtnTrackingURL" XMLGroup="Extn"/>
+        </Attributes>
+      </Entity>
+	</Entities>
+</DBSchema>

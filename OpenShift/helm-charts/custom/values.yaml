@@ -1,0 +1,91 @@
+# Licensed Materials - Property of IBM
+# IBM Order Management Software (5725-D10)
+# (C) Copyright IBM Corp. 2019 All Rights Reserved.
+# US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+
+
+# Default values for the chart
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+appserver:
+  replicaCount: 1
+  image: 
+    name: om-app
+    tag: ent-10.0.0.5-x86_64
+    pullPolicy: IfNotPresent
+  config:
+    vendor: websphere
+    vendorFile: servers.properties
+    jvm:
+      xms: 1024m
+      xmx: 2048m
+    database:
+      maxPoolSize: 50
+      minPoolSize: 10
+  service:
+    type: NodePort
+    http:
+      port: 9080
+      nodePort: 32288
+    https:
+      port: 9443
+      nodePort: 32248
+  resources:
+    requests:
+      memory: 2560Mi
+      cpu: 1
+  ingress:
+    enabled: true
+    host: "oms-rhocp-certification.eu-de.containers.appdomain.cloud"
+    ssl:
+      enabled: false
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
+
+omserver:
+  image: 
+    repository: us.icr.io/oms-rhocp
+    name: om-agent
+    tag: ent-10.0.0.5-x86_64
+    pullPolicy: Always
+  deployHealthMonitor: true
+  common:
+    jvmArgs: "-Xms512m\ -Xmx1024m"
+    replicaCount: 1
+    resources:
+      requests:
+        memory: 1024Mi
+        cpu: 0.5
+      limits:
+        memory: 2048Mi
+        cpu: 1
+
+
+datasetup:
+  loadFactoryData: DoNotInstall
+  image: 
+    repository: us.icr.io/oms-rhocp
+    name: om-agent
+    tag: ent-10.0.0.5-x86_64
+    pullPolicy: Always
+
+
+global:
+  image: 
+    # repository: docker-registry-default.apps.on-rhino-icp-mst.9.30.122.82.nip.io/default
+    repository: us.icr.io/oms-rhocp
+  appSecret: oms-rhocp-grp-secret-oms
+  # serviceAccountName: oms-rhocp-certification-oms-rhocp-grp-1-id
+  database:
+    serverName: 169.47.149.122
+    port: 50000
+    dbname: omdbgrp1
+    user: db2inst1
+    dbvendor: db2
+  customerOverrides:
+  - yfs.yfs.searchIndex.rootDirectory=/shared/SearchIndex
+  arch:
+    amd64: "3 - Most preferred"

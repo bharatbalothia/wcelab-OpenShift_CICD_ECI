@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Licensed Materials - Property of IBM
+IBM Sterling Selling And Fulfillment Suite
+(C) Copyright IBM Corp. 2005, 2013 All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ -->
+<!--getOrderList Output XML-->
+<OrderList FirstOrderHeaderKey="" LastOrderHeaderKey="" LastRecordSet=""
+    ReadFromHistory="" TotalNumberOfRecords="" TotalOrderList="">
+    <Order   OrderDate=""      OrderNo=""   OrderType=""  Currency=""   TotalAmount="" >
+        <PriceInfo Currency=""   TotalAmount=""/>
+         
+         
+        <OrderLines TotalNumberOfRecords="">
+            <OrderLine  OrderedQty=""  PrimeLineNo="" >
+                 
+                <Item  ItemID=""  ProductLine=""  />                  
+                
+                <LinePriceInfo   ListPrice=""   RetailPrice=""   UnitPrice=""/>
+                  <LineOverallTotals   Discount=""  />
+                
+                <LineCharges>
+                    <LineCharge   ChargeAmount=""   ChargeName="" >                     
+                    </LineCharge>
+                </LineCharges>
+                
+                <LineTaxes>
+                    <LineTax ChargeCategory="" ChargeName="" Tax=""  />
+                    <TaxSummary>
+                        <TaxSummaryDetail  OverallTax="" />
+                    </TaxSummary>
+                </LineTaxes>
+				<References>
+						<Reference Name="" Value=""/>
+				</References>			
+             </OrderLine>
+        </OrderLines>      
+        <PersonInfoShipTo  AddressLine1=""   City=""
+             Country=""    FirstName=""  LastName=""      State=""   ZipCode=""/>
+        <!--Either at line level or at header level -->
+        <PersonInfoBillTo   AddressLine1=""   City=""
+             Country=""    FirstName=""  LastName=""   MobilePhone=""   State=""   ZipCode=""/>
+		<References>
+				<Reference Name="" Value=""/>
+		 </References>			
+    </Order>
+</OrderList>

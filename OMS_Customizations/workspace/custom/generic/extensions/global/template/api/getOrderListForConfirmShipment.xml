@@ -1,0 +1,11 @@
+<OrderList FirstOrderHeaderKey="" LastOrderHeaderKey="" LastRecordSet=""
+    ReadFromHistory="" TotalNumberOfRecords="" TotalOrderList="">
+    <Order  DocumentType=""  EnterpriseCode=""  OrderHeaderKey="" OrderNo="">
+		<OrderLines TotalNumberOfRecords="">
+            <OrderLine  OrderLineKey="" OrderedQty="" PrimeLineNo=""   SubLineNo=""  />
+		</OrderLines>
+		<References>
+			<Reference Name="" Value=""/>
+		</References>
+	</Order>
+</OrderList>

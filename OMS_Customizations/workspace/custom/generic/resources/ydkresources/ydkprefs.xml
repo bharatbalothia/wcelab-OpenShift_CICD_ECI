@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+IBM Sterling Selling and Fulfillment Suite
+(C) Copyright IBM Corp. 2001, 2013 All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<preferences>
+    <configsynch>
+        <Settings ReportsDir="">
+            <AuditDeployment ValidateLockid="N" ValidateOldValues="Y" ValidateRecordExistsBeforeDelete="Y"/>
+        </Settings>
+        <SourceDatabases>
+		    <Database Name="Local_Files" className="" dbType="XML"
+	                folder="/opt/sterling/runtime/CDT_XMLS" jdbcURL="" schema="" user=""/>
+	        <Database Name="MC_DB" className="com.ibm.db2.jcc.DB2Driver" dbType="db2" folder=""
+	                httpurl="http://localhost:9080/smcfs/interop/InteropHttpServlet" httpuser="admin"
+	                jdbcURL="jdbc:db2://169.47.149.122:50000/omdb"
+	                schema="OMDB" user="db2inst1"/> 
+	        <Database Name="MC_XML" className="com.ibm.db2.jcc.DB2Driver" dbType="XML" folder="/opt/ssfs/sources/CDT"
+	                httpurl="http://localhost:9080/smcfs/interop/InteropHttpServlet" httpuser="admin"
+	                jdbcURL="" schema="" user=""/> 
+        </SourceDatabases>
+        <TargetDatabases>
+            <Database Name="Local_Files" className="" dbType="XML"
+                folder="/opt/sterling/runtime/CDT_XMLS" jdbcURL="" schema="" user=""/>
+		    <Database Name="LOCAL" className="com.ibm.db2.jcc.DB2Driver" dbType="db2" folder=""
+	                httpurl="http://localhost:9080/smcfs/interop/InteropHttpServlet" httpuser="admin"
+	                jdbcURL="jdbc:db2://localhost:50000/OMDB"
+	                schema="OMDB" user="db2inst1"/>
+	        <Database Name="MC_XML" className="com.ibm.db2.jcc.DB2Driver" dbType="XML" folder="/opt/ssfs/sources/CDT"
+	                httpurl="http://localhost:9080/smcfs/interop/InteropHttpServlet" httpuser="admin"
+	                jdbcURL="" schema="" user=""/> 
+        </TargetDatabases>
+        <SourceTargetPrefs>
+            <SourceTargetPrefs>                
+	        	<SourceTargetPair SourceDatabase="MC_DB" TargetDatabase="MC_XML">				
+                    <Transformations></Transformations>
+                    <Ignore>
+                        <Table Name="PLT_PROPERTY_METADATA"/>
+                        <Table Name="PLT_DB_COLONY"/>
+                        <Table Name="PLT_DB_COLONY_POOL"/>
+                        <Table Name="PLT_DB_POOL"/>
+                        <Table Name="PLT_UNIQUE_ID"/>                        
+                    	<Table Name="YFS_USER"/>
+                    	<Table Name="YFS_BASE_TRANSACTION"/>
+		    		</Ignore>
+                    <AppendOnly>
+                        <Table Name="YFS_USER_GROUP"/>
+						<Table Name="YFS_USER_GROUP_LIST"/>
+						<Table Name="YFS_RULES"/>
+						<Table Name="YFS_APPLICATION_MENU"/>
+                        <Table Name="YFS_INVENTORY_MONITOR_RULES"/>
+                        <Table Name="YFS_INVENTORY_NODE_CONTROL"/>
+                        <Table Name="YFS_PIPELINE"/>
+                        <Table Name="YFS_PIPELINE_CONDITION"/>
+                        <Table Name="YFS_PIPELINE_DEFINITION"/>
+                        <Table Name="YPM_PRICING_RULE"/>
+                        <Table Name="YPM_PRICING_RULE_ASSIGNMENT"/>
+                        <Table Name="YPM_PRICING_RULE_ITEM"/>
+                        <Table Name="YFS_COMMON_CODE"/>
+                        <Table Name="YFS_ITEM_UOM_MASTER"/>
+                        <Table Name="YFS_LOCALE"/>
+                    </AppendOnly>
+                </SourceTargetPair>
+            </SourceTargetPrefs>
+        </SourceTargetPrefs>
+    </configsynch>
+</preferences>

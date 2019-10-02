@@ -1,0 +1,7 @@
+<OrderList>
+<Order OrderHeaderKey=""  OrderNo="" Status="" MaxOrderStatus="" MinOrderStatus="" >
+    <OrderHoldTypes>
+	  <OrderHoldType />
+	</OrderHoldTypes>
+</Order>
+</OrderList>
