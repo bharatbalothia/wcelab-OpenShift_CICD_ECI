@@ -1,0 +1,37 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: oms-custom-build-001
+  namespace: oms-rhocp-grp1
+spec:
+  nodeSelector: {}
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'oms-image-stream:build001'
+    pushSecret:
+      name: builder-dockercfg-6f75w
+  resources: {}
+  strategy:
+    type: Custom
+    customStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: oms-rhocp-grp1
+        name: 'oms-image-stream:latest'
+      env:
+        - name: OMS_RHOS_CUSTOM_BUILD
+          value: 'true'
+      exposeDockerSocket: true
+      forcePull: true
+  postCommit: {}
+  serviceAccount: oms-rhocp-certification-oms-rhocp-grp-1-id
+  source:
+    type: Git
+    git:
+      uri: 'git@github.ibm.com:mreyas/oms-custom-grp1.git'
+    contextDir: build
+    sourceSecret:
+      name: github-sshuath-secret
+  triggers: []
+  runPolicy: Serial
