@@ -1,0 +1,2 @@
+ConfigMap, Secrets,Persistence volume claim, Image Stream configuration YAMLs here.
+https://docs.openshift.com/container-platform/3.11/install_config/aggregate_logging.html

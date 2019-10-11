@@ -1,0 +1,18 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: oms-image-stream-001
+  namespace: oms-rhocp-grp1
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - name: latest
+      annotations: null
+      from:
+        kind: DockerImage
+        name: 'us.icr.io/oms-rhocp/om-base:ent-10.0.0.7-x86_64'
+      generation: 2
+      importPolicy: {}
+      referencePolicy:
+        type: Source

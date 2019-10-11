@@ -1,0 +1,65 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: oms-custom-cdt-export
+  namespace: oms-rhocp-grp1
+spec:
+  nodeSelector: {}
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'oms-image-stream:cdt001'
+    pushSecret:
+      name: builder-dockercfg-6f75w
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Custom
+    customStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: oms-rhocp-grp1
+        name: 'oms-image-stream:latest'
+      env:
+        - name: OMS_RHOS_CUSTOM_BUILD
+          value: 'true'
+        - name: IMPORT
+          value: 'false'
+        - name: SOURCEDB
+          value: MC_DB
+        - name: TARGETDB
+          value: MC_XML
+        - name: SOURCEDB_USERID
+          valueFrom:
+            configMapKeyRef:
+              name: oms-cdt-configmap-dev
+              key: SOURCEDB_USERID
+        - name: SOURCEDB_CATALOG
+          valueFrom:
+            configMapKeyRef:
+              name: oms-cdt-configmap-dev
+              key: SOURCEDB_CATALOG
+        - name: SOURCEDB_URL
+          valueFrom:
+            configMapKeyRef:
+              name: oms-cdt-configmap-dev
+              key: SOURCEDB_URL
+        - name: SOURCEDB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: oms-rhocp-grp-secret-oms
+              key: dbpassword
+      exposeDockerSocket: true
+      forcePull: true
+  postCommit: {}
+  serviceAccount: oms-rhocp-certification-oms-rhocp-grp-1-id
+  source:
+    type: Git
+    git:
+      uri: 'git@github.ibm.com:mreyas/oms-custom-grp1.git'
+    contextDir: build
+    sourceSecret:
+      name: github-sshuath-secret
+  triggers: []
+  runPolicy: Serial
