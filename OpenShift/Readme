@@ -1,0 +1,6 @@
+First have a linux virtual machine setup in your local using virtual box or vmware
+After you have the Linux Virtual Machine do the following:
+1. Setup docker - https://docs.docker.com/install/linux/docker-ce - choose based on your Linux OS
+2. Setup IBMCloud CLI - https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started -
+3. Setup IBMCloud CR CLI - https://cloud.ibm.com/docs/container-registry-cli-plugin?topic=container-registry-cli-plugin-containerregcli
+4. Setup OCP CLI - https://cloud.ibm.com/docs/openshift?topic=openshift-openshift-cli
