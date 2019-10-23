@@ -1,2 +1,4 @@
 ConfigMap, Secrets,Persistence volume claim, Image Stream configuration YAMLs here.
 https://docs.openshift.com/container-platform/3.11/install_config/aggregate_logging.html
+https://cloud.ibm.com/docs/openshift?topic=openshift-openshift_health
+https://cloud.ibm.com/docs/openshift?topic=openshift-openshift_health#oc_logmet_options
